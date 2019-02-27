@@ -10,5 +10,7 @@ namespace MarioPyramid.Utilities
         public void WriteLine(string message = "") { Console.WriteLine(message); }
         public string ReadLine() { return Console.ReadLine(); }
         public ConsoleKeyInfo ReadKey() { return Console.ReadKey(); }
+        public ConsoleKeyInfo ReadKey(bool suppress) { return Console.ReadKey(suppress); }
+
     }
 }

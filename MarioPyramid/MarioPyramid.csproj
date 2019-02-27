@@ -48,12 +48,14 @@
   <ItemGroup>
     <Compile Include="Application.cs" />
     <Compile Include="ContainerConfig.cs" />
+    <Compile Include="Exceptions\NotANumberException.cs" />
     <Compile Include="IApplication.cs" />
     <Compile Include="IProgramLogic.cs" />
     <Compile Include="Utilities\ConsoleMethods.cs" />
     <Compile Include="Exceptions\CatOnTheKeyboardException.cs" />
     <Compile Include="Exceptions\HeightCannotBeNegativeException.cs" />
     <Compile Include="Exceptions\HeightLimitExceededException.cs" />
+    <Compile Include="Exceptions\EmptyInputException.cs" />
     <Compile Include="Utilities\IConsoleMethods.cs" />
     <Compile Include="Utilities\IInputHelper.cs" />
     <Compile Include="Utilities\InputHelper.cs" />
@@ -61,7 +63,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="ProgramLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\IValidation.cs" />
     <Compile Include="Utilities\PyramidHelper.cs" />
+    <Compile Include="Utilities\Validation.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

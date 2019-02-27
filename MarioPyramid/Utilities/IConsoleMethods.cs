@@ -10,5 +10,6 @@ namespace MarioPyramid.Utilities
         void WriteLine(string message = "");
         string ReadLine();
         ConsoleKeyInfo ReadKey();
+        ConsoleKeyInfo ReadKey(bool suppress);
     }
 }

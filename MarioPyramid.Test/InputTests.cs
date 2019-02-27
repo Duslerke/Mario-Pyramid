@@ -19,7 +19,8 @@ namespace MarioPyramid.Test
             //Arange
 
             MockConsoleMethods console = new MockConsoleMethods();
-            InputHelper input = new InputHelper(console);
+            Validation gateKeeper = new Validation();
+            InputHelper input = new InputHelper(console, gateKeeper);
 
             ConsoleKeyInfo keyInfo = new ConsoleKeyInfo('y', ConsoleKey.Y,  false,  false,  false); //no need to check for alt, shift, ctrl because I'm extacting only the console key out of all this other available informations
 
@@ -43,7 +44,8 @@ namespace MarioPyramid.Test
         {
             //Arange
             MockConsoleMethods console = new MockConsoleMethods();
-            InputHelper input = new InputHelper(console);
+            Validation gateKeeper = new Validation();
+            InputHelper input = new InputHelper(console, gateKeeper);
 
             ConsoleKeyInfo keyInfo = new ConsoleKeyInfo('n', ConsoleKey.N, false, false, false);
 
@@ -70,7 +72,8 @@ namespace MarioPyramid.Test
         {
             //Arange
             MockConsoleMethods console = new MockConsoleMethods();
-            InputHelper input = new InputHelper(console);
+            Validation gateKeeper = new Validation();
+            InputHelper input = new InputHelper(console, gateKeeper);
 
             ConsoleKeyInfo keyInfo = new ConsoleKeyInfo(keyChar, consoleKey, false, false, false);
 

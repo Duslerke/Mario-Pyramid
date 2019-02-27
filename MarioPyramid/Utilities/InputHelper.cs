@@ -6,29 +6,31 @@ namespace MarioPyramid.Utilities
     public class InputHelper : IInputHelper
     {
         private IConsoleMethods _console { get; set; }
+        private IValidation _gateKeeper { get; set; }
 
-        public InputHelper(IConsoleMethods console)
+        public InputHelper(IConsoleMethods console, IValidation gateKeeper)
         {
             _console = console;
+            _gateKeeper = gateKeeper;
         }
 
         public bool PromptForExit()
         {
-            _console.Write("\nQuit the program? (y/n) ");
             while (true)
             {
-                ConsoleKey key = _console.ReadKey().Key;
-                _console.WriteLine("\n");
-                if (key == ConsoleKey.Y) { return true; }
-                else if (key == ConsoleKey.N) { return false; }
+                _console.Write("\nQuit the program? (y/n) ");
+
+                ConsoleKey key = _console.ReadKey(true).Key;
+                Console.Clear();
+                bool? output = _gateKeeper.ExitLogic(key);
+
+                if (output != null) { return (bool)output; }
             }
+            
         }
 
         public int GetUserInput()
         {
-            int errorCount = 0;
-            int userInput;
-
             while (true)
             {
                 try
@@ -36,24 +38,26 @@ namespace MarioPyramid.Utilities
                     try
                     {
                         _console.Write("Provide integer for height: ");
-                        int aheight = Convert.ToInt32(_console.ReadLine());
+                        string input = _console.ReadLine();
 
-                        if (aheight > 23) { throw new HeightLimitExceededException("Height can't be greater than 23!"); }
-                        else if (aheight < 0) { throw new HeightCannotBeNegativeException("Height can't be negative!"); }
-                        else { userInput = aheight; break; }
+                        _gateKeeper.checkNumeric(input);
 
+                        int intInput = Convert.ToInt32(input);
+
+                        _gateKeeper.checkInRange(intInput);
+
+                        _gateKeeper.errorCount = 0;
+                        return intInput;
                     }
                     catch (Exception e)
                     {
-                        errorCount++;
-                        if (errorCount >= 20) { throw new CatOnTheKeyboardException("Please remove cat from the keyboard!"); };
+                        _gateKeeper.checkForCat();
                         _console.WriteLine($"{e.Message} Try again.");
                     }
                 }
                 catch (Exception e) { _console.WriteLine($"{e.Message} Try again."); }
                 finally { _console.WriteLine(); }
             }
-            return userInput;
         }
     }
 }
