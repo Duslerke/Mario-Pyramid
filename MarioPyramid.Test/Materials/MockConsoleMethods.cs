@@ -14,14 +14,17 @@ namespace MarioPyramidTest.Materials
         public string writeLineString = "\n";
         public string readLineInput; 
         public ConsoleKeyInfo readKeyInput; //use stuff like: ConsoleKey.Y
+        public int timesInputed;
 
         public void Write(string message = "") { writeString += ("\n" + message); }
 
         public void WriteLine(string message = "") { writeLineString += message; }
 
-        public string ReadLine() { return readLineInput; }
+        public string ReadLine() { timesInputed++; return readLineInput; }
 
-        public ConsoleKeyInfo ReadKey() { return readKeyInput; } //TO DO: Change all instances of "Console" into "console" once you inject the IConsole interface as a parameter into a Input helper
+        public ConsoleKeyInfo ReadKey() { timesInputed++; return readKeyInput; } //TO DO: Change all instances of "Console" into "console" once you inject the IConsole interface as a parameter into a Input helper
+
+        public ConsoleKeyInfo ReadKey(bool suppress) { timesInputed++; return readKeyInput; } //TO DO: Change all instances of "Console" into "console" once you inject the IConsole interface as a parameter into a Input helper
 
         public void Cleanup()
         {

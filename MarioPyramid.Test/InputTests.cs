@@ -73,7 +73,6 @@ namespace MarioPyramid.Test
 
             void ExitInfiniteLoop()
             {
-                //Task.Delay(50);
                 console.readKeyInput = new ConsoleKeyInfo('n', ConsoleKey.N, false, false, false);
             }
 
@@ -83,17 +82,15 @@ namespace MarioPyramid.Test
                 ExitInfiniteLoop();
             }).Start();
 
-
             console.readKeyInput = keyInfo;
-            string questionString = "\nQuit the program? (y/n) ";
-            int expected = questionString.Length;
+            int expected_moreThan = 1;
 
             //Act
             input.PromptForExit();
-            int actual = console.writeLineString.Length;
+            int actual = console.timesInputed;
 
             //Assert
-            Assert.True(actual > expected);
+            Assert.True(actual > expected_moreThan);
         }
     }
 }
