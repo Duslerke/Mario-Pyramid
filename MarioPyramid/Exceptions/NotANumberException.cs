@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MarioPyramid.Exceptions
 {
-    internal class NotANumberException : Exception
+    public class NotANumberException : Exception
     {
         public NotANumberException(string message) : base(message)
         {

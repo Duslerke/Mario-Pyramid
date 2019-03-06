@@ -16,7 +16,7 @@ namespace MarioPyramid.Utilities
         public Validation()
         {
             errorCount = 0;
-            numerals = "0123456789";
+            numerals = "-0123456789";
         }
 
         public bool? ExitLogic(ConsoleKey key)
@@ -46,7 +46,6 @@ namespace MarioPyramid.Utilities
 
         public void checkForCat()
         {
-            Console.WriteLine(errorCount);
             if (errorCount >= 20) { throw new CatOnTheKeyboardException("Please remove cat from the keyboard!"); };
         }
     }

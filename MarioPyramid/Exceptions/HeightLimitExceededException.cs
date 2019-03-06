@@ -2,7 +2,7 @@
 
 namespace MarioPyramid.Exceptions
 {
-    internal class HeightLimitExceededException : Exception
+    public class HeightLimitExceededException : Exception
     {
         public HeightLimitExceededException(string message) : base(message)
         {

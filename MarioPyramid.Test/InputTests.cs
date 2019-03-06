@@ -14,46 +14,6 @@ namespace MarioPyramid.Test
     public class InputTests //how to separate out namespaces in xUnit?
     {
         [Fact]
-        public void ExitLogic_ShouldReturn_True_When_Y_IsPressed()
-        {
-            Validation validation = new Validation();
-            ConsoleKey key = ConsoleKey.Y;
-            bool? expected = true;
-
-            bool? actual = validation.ExitLogic(key);
-
-            Assert.Equal(expected, actual);
-        }
-
-        [Fact]
-        public void ExitLogic_ShouldReturn_False_When_N_IsPressed()
-        {
-            Validation validation = new Validation();
-            ConsoleKey key = ConsoleKey.N;
-            bool? expected = false;
-
-            bool? actual = validation.ExitLogic(key);
-
-            Assert.Equal(expected, actual);
-        }
-
-        [Theory]
-        [InlineData(ConsoleKey.F)]
-        [InlineData(ConsoleKey.UpArrow)]
-        [InlineData(ConsoleKey.F12)]
-        [InlineData(ConsoleKey.Backspace)]
-        public void ExitLogic_ShouldReturn_Null_When_NotSpecifiedKey_IsPressed(ConsoleKey consoleKey)
-        {
-            Validation validation = new Validation();
-            ConsoleKey key = consoleKey;
-            bool? expected = null;
-
-            bool? actual = validation.ExitLogic(key);
-
-            Assert.Equal(expected, actual);
-        }
-
-        [Fact]
         public void PromptForExit_ShouldReturn_True_When_Y_IsPressed()
         {
             //Arange
