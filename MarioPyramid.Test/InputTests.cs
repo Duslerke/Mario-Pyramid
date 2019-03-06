@@ -11,10 +11,10 @@ using Xunit;
 
 namespace MarioPyramid.Test
 {
-    public class InputTests
+    public class InputTests //how to separate out namespaces in xUnit?
     {
         [Fact]
-        public void PromptForExit_ShouldReturnTrue_When_Y_IsPressed()
+        public void PromptForExit_ShouldReturn_True_When_Y_IsPressed()
         {
             //Arange
 
@@ -34,13 +34,10 @@ namespace MarioPyramid.Test
             //Assert
 
             Assert.Equal(expected, actual);
-
-            //Cleanup
-
         }
 
         [Fact]
-        public void PromptForExit_ShouldReturnFalse_When_N_IsPressed()
+        public void PromptForExit_ShouldReturn_False_When_N_IsPressed()
         {
             //Arange
             MockConsoleMethods console = new MockConsoleMethods();
@@ -57,9 +54,6 @@ namespace MarioPyramid.Test
 
             //Assert
             Assert.Equal(expected, actual);
-
-            //Cleanup
-
         }
 
         [Theory]
@@ -93,15 +87,13 @@ namespace MarioPyramid.Test
             console.readKeyInput = keyInfo;
             string questionString = "\nQuit the program? (y/n) ";
             int expected = questionString.Length;
+
             //Act
             input.PromptForExit();
             int actual = console.writeLineString.Length;
+
             //Assert
-            Assert.Equal(true, actual>expected);
-
-
-            //Cleanup
-
+            Assert.True(actual > expected);
         }
     }
 }
