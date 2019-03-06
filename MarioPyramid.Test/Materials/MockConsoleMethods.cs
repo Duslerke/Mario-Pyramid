@@ -11,14 +11,18 @@ namespace MarioPyramidTest.Materials
     public class MockConsoleMethods : IConsoleMethods//, IDisposable
     {//can write to some outside the function empty string
         public string writeString = ""; //there is a better way than this, but I'm tired and it's late
-        public string writeLineString = "\n";
+        public string writeLineString = "";
         public string readLineInput; 
         public ConsoleKeyInfo readKeyInput; //use stuff like: ConsoleKey.Y
         public int timesInputed;
 
-        public void Write(string message = "") { writeString += ("\n" + message); }
+        public void Write(string message = "") { writeString += message; }
 
-        public void WriteLine(string message = "") { writeLineString += message; }
+        public void WriteLine(string message = "")
+        {
+            if(writeLineString != "") { writeLineString += "\n"; }
+            writeLineString +=  message;
+        }
 
         public string ReadLine() { timesInputed++; return readLineInput; }
 
