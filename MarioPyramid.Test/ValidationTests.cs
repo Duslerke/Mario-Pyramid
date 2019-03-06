@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using MarioPyramid;
 using MarioPyramid.Utilities;
 using MarioPyramid.Exceptions;
-using MarioPyramidTest.Materials;
 using Xunit;
 
 namespace MarioPyramid.Test

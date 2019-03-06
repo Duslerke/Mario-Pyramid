@@ -3,15 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
-using MarioPyramid;
 using MarioPyramid.Utilities;
 using MarioPyramidTest.Materials;
 using Xunit;
 
 namespace MarioPyramid.Test
 {
-    public class InputTests //how to separate out namespaces in xUnit?
+    public class InputTests //additional tests
     {
         [Fact]
         public void PromptForExit_ShouldReturn_True_When_Y_IsPressed()
@@ -59,7 +57,6 @@ namespace MarioPyramid.Test
         [Theory]
         [InlineData('o', ConsoleKey.O)]
         [InlineData(' ', ConsoleKey.UpArrow)]
-        [InlineData('z', ConsoleKey.Z)]
         [InlineData(' ', ConsoleKey.F11)]
         [InlineData('4', ConsoleKey.D4)]
         public void PromptForExit_ShouldRequestInputAgain_If_NotSpecifiedKey_IsPressed(char keyChar, ConsoleKey consoleKey)

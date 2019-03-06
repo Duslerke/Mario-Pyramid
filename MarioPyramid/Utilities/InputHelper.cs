@@ -1,5 +1,4 @@
 ﻿using System;
-using MarioPyramid.Exceptions;
 
 namespace MarioPyramid.Utilities
 {
